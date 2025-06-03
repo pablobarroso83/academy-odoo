@@ -1,0 +1,18 @@
+<odoo>
+    <record id="course_demo" model="academy.course">
+        <field name="name">Curso de Odoo </field>
+        <field name="description">Aprende a desarrollar módulos en Odoo 17.</field>
+    </record>
+</odoo>
+<odoo>
+    <record id="course_demo" model="academy.course">
+        <field name="name">Curso de Python</field>
+        <field name="description">Aprende a desarrollar con python.</field>
+    </record>
+</odoo>
+<odoo>
+    <record id="course_demo" model="academy.course">
+        <field name="name">Curso de Java</field>
+        <field name="description">Aprende a desarrollar con java.</field>
+    </record>
+</odoo>

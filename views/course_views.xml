@@ -1,0 +1,65 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Accion cursos -->
+    <record id="action_courses" model="ir.actions.act_window">
+        <field name="name">Cursos</field>
+        <field name="res_model">academy.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Menu principal -->
+    <menuitem id="menu_academy" name="Academia"/>
+    <menuitem id="menu_courses" name="Cursos" parent="menu_academy" action="action_courses"/>
+    
+    <!-- Vista arbol -->
+    <record id="view_course_tree" model="ir.ui.view">
+        <field name="name">course.tree</field>
+        <field name="model">academy.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Vista formulario -->
+    <record id="view_course_form" model="ir.ui.view">
+        <field name="name">course.form</field>
+        <field name="model">academy.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Sesiones">
+                            <field name="session_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="start_date"/>
+                                    <field name="duration"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Vista búsqueda -->
+    <record id="view_course_search" model="ir.ui.view">
+        <field name="name">course.search</field>
+        <field name="model">academy.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Buscar por título"/>
+                <filter string="Con descripción" name="description_filter" domain="[('description','!=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>
